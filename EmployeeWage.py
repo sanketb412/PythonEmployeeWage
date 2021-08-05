@@ -1,16 +1,26 @@
+# ''""
+# @Author: Sanket Bagde
+# @Date: 2021-05-08
+# @Last Modified by:
+# @Last Modified time:
+# @Title : Employee Wage
+# '''
+
 import random
 
 print("---Welcome to Employee Wage problem---")
 
-empCheck = random.randint(0, 1)
+empCheck = random.randint(0, 2)
 
-if empCheck == 0:
-    print("\nEmployee is Absent")
-elif empCheck == 1:
-    print("\nEmployee is Present")
-
-empHr = 8
+is_Full_Day = 1
+is_Half_Day = 2
+empHr = 16
+empHrHalf = 8
 empRatePerHr = 20
-if empCheck == 1:
-    a = empHr * empRatePerHr
-    print("The Daily Wage of an Employee is", a,"\n")
+
+if empCheck == is_Full_Day:
+    print("\nEmployee is Present Full day \nEmployee Daily Wage in Rupees is:", empHr*empRatePerHr,"\n")
+elif empCheck == is_Half_Day:
+    print("\nEmployee is Present Half day \nEmployee Daily Wage in Rupees is:", empHrHalf*empRatePerHr,"\n")
+else:
+    print("\nEmployee is Absent\n")
