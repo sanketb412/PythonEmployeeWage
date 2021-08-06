@@ -10,17 +10,26 @@ import random
 
 print("---Welcome to Employee Wage problem---")
 
-empCheck = random.randint(0, 2)
+EMP_FULL_HR = 16
+EMP_HALF_HR = 8
+EMP_RATE_PER_HR = 20
 
-is_Full_Day = 1
-is_Half_Day = 2
-empHr = 16
-empHrHalf = 8
-empRatePerHr = 20
+def absent():
+    return "Employee is Absent"
 
-if empCheck == is_Full_Day:
-    print("\nEmployee is Present Full day \nEmployee Daily Wage in Rupees is:", empHr*empRatePerHr,"\n")
-elif empCheck == is_Half_Day:
-    print("\nEmployee is Present Half day \nEmployee Daily Wage in Rupees is:", empHrHalf*empRatePerHr,"\n")
-else:
-    print("\nEmployee is Absent\n")
+def full_day():
+    return "Employee Present full day and daily wage is",EMP_FULL_HR*EMP_RATE_PER_HR
+
+def half_day():
+    return "Employee Present half day and daily wage is",EMP_HALF_HR*EMP_RATE_PER_HR
+
+def check_attendance(i):
+    switcher = {
+        0: absent,
+        1: full_day,
+        2: half_day
+    }
+    return switcher.get(i, "nothing")() 
+
+emp_Check = random.randint(0, 2)
+print(check_attendance(emp_Check))
