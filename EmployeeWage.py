@@ -42,13 +42,16 @@ def check_attendance(i):
     return switcher.get(i, "nothing")()
 
 
+def calculate_wage():
+    i = 0
+    j = 0
+    while i <= 100 and j < 21:
+        j += 1
+        emp_Check = random.randint(0, 2)
+        i += check_attendance(emp_Check)
+    print(i)
 
-i = 0
-j = 0
-while i <= 100 and j < 21:
-    j += 1
-    emp_Check = random.randint(0, 2)
-    i += check_attendance(emp_Check)
-print(i)
+    print("Employee Monthly Wage for 100 hrs is:",i * 20)
 
-print("Employee Monthly Wage for 100 hrs is:",i * 20)
+if __name__== '__main__':
+    calculate_wage()
