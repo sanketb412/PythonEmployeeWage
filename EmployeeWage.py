@@ -13,6 +13,7 @@ print("---Welcome to Employee Wage problem---")
 EMP_FULL_HR = 16
 EMP_HALF_HR = 8
 EMP_RATE_PER_HR = 20
+NUM_OF_WORKING_DAYS = 20
 
 def absent():
     return "Employee is Absent"
@@ -31,5 +32,6 @@ def check_attendance(i):
     }
     return switcher.get(i, "nothing")() 
 
-emp_Check = random.randint(0, 2)
-print(check_attendance(emp_Check))
+for i in range (1, 21):
+    emp_Check = random.randint(0, 2)
+    print(check_attendance(emp_Check))
