@@ -15,14 +15,23 @@ EMP_HALF_HR = 8
 EMP_RATE_PER_HR = 20
 NUM_OF_WORKING_DAYS = 20
 
+"""
+Description:
+    created function for each condition and called in switcher.
+Parameter:
+    for full day hours is 16 hr. for half day hours is 8 hrs. and for absent 0 hours.
+Return:
+    Returning the value of full day hour, half day hour and some time 0 hrs.
+"""
+
 def absent():
-    return "Employee is Absent"
+    return 0
 
 def full_day():
-    return "Employee Present full day and daily wage is",EMP_FULL_HR*EMP_RATE_PER_HR
+    return 16
 
 def half_day():
-    return "Employee Present half day and daily wage is",EMP_HALF_HR*EMP_RATE_PER_HR
+    return 8
 
 def check_attendance(i):
     switcher = {
@@ -30,8 +39,16 @@ def check_attendance(i):
         1: full_day,
         2: half_day
     }
-    return switcher.get(i, "nothing")() 
+    return switcher.get(i, "nothing")()
 
-for i in range (1, 21):
+
+
+i = 0
+j = 0
+while i <= 100 and j < 21:
+    j += 1
     emp_Check = random.randint(0, 2)
-    print(check_attendance(emp_Check))
+    i += check_attendance(emp_Check)
+print(i)
+
+print("Employee Monthly Wage for 100 hrs is:",i * 20)
